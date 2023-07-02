@@ -1,7 +1,7 @@
-'1.0.0':
+1.0.0:
     - 'First version of Api'
 1.0.2:
-    - create table
+    - 'create table'
     - 2019_12_14_000001_create_personal_access_tokens_table.php
 1.0.3:
     - create_users_roles
@@ -12,3 +12,6 @@
 1.0.5:
     - create_user_roles
     - 2023_07_02_000000_create_user_roles.php
+1.0.6:
+    - 'Created table wpjscc_api_tests'
+    - builder_table_create_wpjscc_api_tests.php

@@ -1,0 +1,116 @@
+<?php namespace {{ plugin_namespace }}\Controllers;
+
+use BackendMenu;
+//use Backend\Classes\Controller;
+use Wpjscc\Api\Classes\Controller;
+use Wpjscc\Api\Classes\ApiController;
+
+/**
+ * {{ title_name }} Backend Controller
+ */
+class {{ studly_name }}Api extends Controller
+{
+     //黑名单 create,update,preview
+    protected $guarded = [
+     
+    ];
+    /**
+     * @var array Behaviors that are implemented by this controller.
+     */
+    public $implement = [
+        \Wpjscc\Api\Behaviors\FormController::class,
+        \Wpjscc\Api\Behaviors\ListController::class,
+    ];
+
+
+    //自定义处理器
+    public function index_onTest()
+    {
+        $this->putUserPreference('abc', 'def');
+        $this->putUserPreference('a', 'b');
+        $this->putUserPreference('c', 'd');
+        $this->clearUserPreference('abc');
+        
+        return $this->success([
+            'ajax' => 'true',
+            'a' => $this->getUserPreference('a'),
+            'c' => $this->getUserPreference('c'),
+            'abc' => $this->getUserPreference('abc'),
+            'getUserPreferences' => $this->getUserPreferences()
+        ]);
+    }
+
+    // 不支持的方法在 抛出 404
+    // throw new \Wpjscc\Api\Exceptions\NotFoundHttpException('method not support.');
+
+    public function index()
+    {
+        return $this->asExtension('ListController')->index();
+    }
+
+    public function index_onDelete()
+    {
+        return $this->asExtension('ListController')->index_onDelete();
+    }
+
+    public function create($context = null)
+    {
+        return $this->asExtension('FormController')->create($context);
+    }
+
+    public function create_onSave($context = null)
+    {
+        return $this->asExtension('FormController')->create_onSave($context);
+    }
+
+    public function create_onRelationRender()
+    {
+        if (!$this->isClassExtendedWith(\Wpjscc\Api\Behaviors\RelationController::class)) {
+            throw new \Wpjscc\Api\Exceptions\NotFoundHttpException('RelationController behavior not found on controller.');
+        }
+        return $this->asExtension('FormController')->create_onRelationRender();
+    }
+
+    public function update($recordId = null, $context = null)
+    {
+        return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
+    public function update_onSave($recordId = null, $context = null)
+    {
+        return $this->asExtension('FormController')->update_onSave($recordId, $context);
+    }
+
+    public function update_onDelete($recordId = null)
+    {
+        return $this->asExtension('FormController')->update_onDelete($recordId);
+    }
+
+    public function update_onRelationRender($recordId = null)
+    {
+        if (!$this->isClassExtendedWith(\Wpjscc\Api\Behaviors\RelationController::class)) {
+            throw new \Wpjscc\Api\Exceptions\NotFoundHttpException('RelationController behavior not found on controller.');
+        }
+
+        return $this->asExtension('FormController')->update_onRelationRender($recordId);
+    }
+
+    public function preview($recordId = null, $context = null)
+    {
+        return $this->asExtension('FormController')->preview($recordId, $context);
+    }
+
+    public function preview_onSave($recordId = null, $context = null)
+    {
+        return $this->asExtension('FormController')->preview_onSave($recordId, $context);
+    }
+
+    public function preview_onRelationRender($recordId = null)
+    {
+        if (!$this->isClassExtendedWith(\Wpjscc\Api\Behaviors\RelationController::class)) {
+            throw new \Wpjscc\Api\Exceptions\NotFoundHttpException('RelationController behavior not found on controller.');
+        }
+        return $this->asExtension('FormController')->preview_onRelationRender($recordId);
+    }
+
+}

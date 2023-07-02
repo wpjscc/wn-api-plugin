@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: 'wpjscc.api::lang.models.userrole.label'
+name: '{{ model_lang_key }}.label'
 
 # Model Form Field configuration
-form: $/wpjscc/api/models/userrole/fields.yaml
+form: $/{{ plugin_folder }}/models/{{ lower_model }}/fields_api.yaml
 
 # Model Class name
-modelClass: Wpjscc\Api\Models\UserRole
+modelClass: {{ plugin_namespace }}\Models\{{ studly_model }}
 
 # Default redirect location
-defaultRedirect: wpjscc/api/userroles
+defaultRedirect: {{ controller_url }}
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: wpjscc/api/userroles/update/:id
-    redirectClose: wpjscc/api/userroles
+    redirect: {{ controller_url }}/update/:id
+    redirectClose: {{ controller_url }}
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: wpjscc/api/userroles
-    redirectClose: wpjscc/api/userroles
+    redirect: {{ controller_url }}
+    redirectClose: {{ controller_url }}
 
 # Preview page
 preview:

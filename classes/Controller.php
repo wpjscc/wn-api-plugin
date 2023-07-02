@@ -190,6 +190,17 @@ class Controller extends ControllerBase
     }
 
     /**
+     * 
+     * 1 publicActions 可以公共访问的方法
+     * 
+     * 2 action 页面可以访问的方法（非 on 方法）
+     * 
+     * 3 on方法 （执行 ajax header 中的方法 （如果找不到方法会执行 action 然后执行 widget 里面的方法））
+     * 
+     * 4 用户有权限，才会展示权限字段（不依赖登陆）
+     * 
+     * 
+     * 
      * Execute the controller action.
      * @param string $action The action name.
      * @param array $params Routing parameters to pass to the action.
@@ -251,8 +262,9 @@ class Controller extends ControllerBase
          * Set the client preference locale
          * todo
          */
-        // BackendPreference::setAppLocale();
-        // BackendPreference::setAppFallbackLocale();
+        BackendPreference::setAppLocale();
+        BackendPreference::setAppFallbackLocale();
+
 
         /*
          * Execute AJAX event

@@ -1,0 +1,25 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: 'id'
+        searchable: true
+    api:
+        label: api
+        type: api
+        searchable: false
+        sortable: false
+        display: false
+    created_at:
+        label: '创建时间'
+        #type: datetime
+        searchable: true
+        sortable: true
+        invisible: true
+    updated_at:
+        label: '更新时间'
+        #type: datetime
+        searchable: true
+        sortable: true

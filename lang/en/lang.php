@@ -1,7 +1,9 @@
-<?php return [
+<?php
+
+return [
     'plugin' => [
         'name' => 'api',
-        'description' => ''
+        'description' => '',
     ],
     'roles' => [
         'menu_label' => 'Roles',
@@ -10,6 +12,10 @@
         'userrole' => [
             'label' => 'User Role',
             'label_plural' => 'User Roles',
+        ],
+        'test' => [
+            'label' => 'Test',
+            'label_plural' => 'Tests',
         ],
     ],
 ];

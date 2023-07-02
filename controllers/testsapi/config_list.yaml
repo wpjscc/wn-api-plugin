@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/wpjscc/api/models/userrole/columns.yaml
+list: $/wpjscc/api/models/test/columns_api.yaml
 
 # Model Class name
-modelClass: Wpjscc\Api\Models\UserRole
+modelClass: Wpjscc\Api\Models\Test
 
 # List Title
-title: 'wpjscc.api::lang.models.userrole.label_plural'
+title: 'wpjscc.api::lang.models.test.label_plural'
 
 # Link URL for each record
-recordUrl: wpjscc/api/userroles/update/:id
+recordUrl: wpjscc/api/testsapi/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
@@ -31,6 +31,7 @@ showSetup: true
 
 # Displays the sorting link on each column
 showSorting: true
+showSearch: true
 
 # Default sorting column
 # defaultSort:

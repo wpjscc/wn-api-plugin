@@ -26,6 +26,9 @@ class Plugin extends PluginBase
             $this->bootPackages();
         }
 
+        $this->registerConsoleCommand('create.apicontroller', \Wpjscc\Api\Console\CreateApiController::class);
+        $this->registerConsoleCommand('create.apimodel', \Wpjscc\Api\Console\CreateApiModel::class);
+        
         Event::listen('backend.menu.extendItems', function (\Backend\Classes\NavigationManager $navigationManager) {
             $navigationManager->addSideMenuItems('Winter.User', 'user', [
                 'userroles' => [

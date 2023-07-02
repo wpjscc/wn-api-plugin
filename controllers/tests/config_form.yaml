@@ -1,0 +1,10 @@
+name: Tests
+form: $/wpjscc/api/models/test/fields.yaml
+modelClass: Wpjscc\Api\Models\Test
+defaultRedirect: wpjscc/api/tests
+create:
+    redirect: 'wpjscc/api/tests/update/:id'
+    redirectClose: wpjscc/api/tests
+update:
+    redirect: wpjscc/api/tests
+    redirectClose: wpjscc/api/tests

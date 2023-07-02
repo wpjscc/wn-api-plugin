@@ -1,0 +1,12 @@
+list: $/wpjscc/api/models/test/columns.yaml
+modelClass: Wpjscc\Api\Models\Test
+title: Tests
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'wpjscc/api/tests/update/:id'

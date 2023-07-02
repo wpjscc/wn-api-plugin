@@ -4,3 +4,14 @@ plugin:
     author: wpjscc
     icon: wn-icon-ship
     replaces: {  }
+permissions:
+    wpjscc.api.tests:
+        tab: Api
+        label: 'Api demo'
+navigation:
+    tests:
+        label: ApiDemo
+        url: wpjscc/api/tests
+        icon: icon-life-ring
+        permissions:
+            - wpjscc.api.tests

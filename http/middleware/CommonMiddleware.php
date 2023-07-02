@@ -1,7 +1,7 @@
 <?php namespace Wpjscc\Api\Http\Middleware;
 
 use Wpjscc\Api\Classes\ApiController;
-
+use Auth;
 
 class CommonMiddleware
 {
@@ -13,9 +13,8 @@ class CommonMiddleware
             ApiController::$ui = $ui;
             ApiController::$options= $options;
         }
-
         if ($user = $request->user()) {
-            \Auth::setUser($user);
+            Auth::setUser($user);
         }
 
         return $next($request);
