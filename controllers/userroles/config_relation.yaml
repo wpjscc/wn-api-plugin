@@ -1,0 +1,10 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+users:
+    label: backend::lang.user.name
+    view:
+        list: ~/plugins/winter/user/models/user/columns.yaml
+        toolbarButtons: add|remove
+        recordUrl: wpjscc/api/users/update/:id

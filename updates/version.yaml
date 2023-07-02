@@ -1,0 +1,14 @@
+'1.0.0':
+    - 'First version of Api'
+1.0.2:
+    - create table
+    - 2019_12_14_000001_create_personal_access_tokens_table.php
+1.0.3:
+    - create_users_roles
+    - 2023_07_02_000001_create_users_roles.php
+1.0.4:
+    - create_user_perferences
+    - 2023_07_02_000002_create_user_perferences.php
+1.0.5:
+    - create_user_roles
+    - 2023_07_02_000000_create_user_roles.php

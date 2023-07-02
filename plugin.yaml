@@ -1,0 +1,6 @@
+plugin:
+    name: 'wpjscc.api::lang.plugin.name'
+    description: 'wpjscc.api::lang.plugin.description'
+    author: wpjscc
+    icon: wn-icon-ship
+    replaces: {  }

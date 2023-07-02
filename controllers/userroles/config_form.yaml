@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'wpjscc.api::lang.models.userrole.label'
+
+# Model Form Field configuration
+form: $/wpjscc/api/models/userrole/fields.yaml
+
+# Model Class name
+modelClass: Wpjscc\Api\Models\UserRole
+
+# Default redirect location
+defaultRedirect: wpjscc/api/userroles
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: wpjscc/api/userroles/update/:id
+    redirectClose: wpjscc/api/userroles
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: wpjscc/api/userroles
+    redirectClose: wpjscc/api/userroles
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

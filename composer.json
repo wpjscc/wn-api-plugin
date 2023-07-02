@@ -1,0 +1,17 @@
+{
+    "name": "wpjscc/wn-api-plugin",
+    "license": "MIT",
+    "type": "winter-plugin",
+    "authors": [
+        {
+            "name": "wpjscc",
+            "email": "wpjscc@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/sanctum": "^3.0"
+    },
+    "extra": {
+        "installer-name": "api"
+    }
+}
