@@ -597,7 +597,7 @@ class ListController extends ControllerBehavior
     public static function extendListColumns($callback)
     {
         $calledClass = self::getCalledExtensionClass();
-        Event::listen('backend.list.extendColumns', function (\Backend\Widgets\Lists $widget) use ($calledClass, $callback) {
+        Event::listen('backend.list.extendColumns', function (\Wpjscc\Api\Widgets\Lists $widget) use ($calledClass, $callback) {
             if (!is_a($widget->getController(), $calledClass)) {
                 return;
             }
