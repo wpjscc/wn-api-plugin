@@ -8,7 +8,7 @@ use Wpjscc\Api\Classes\ApiController;
 /**
  * {{ title_name }} Backend Controller
  */
-class {{ studly_name }}Api extends Controller
+class {{ studly_name }} extends Controller
 {
      //黑名单 create,update,preview
     protected $guarded = [
