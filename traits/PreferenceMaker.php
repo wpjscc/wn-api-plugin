@@ -1,7 +1,7 @@
 <?php namespace Wpjscc\Api\Traits;
 
 use Str;
-use Winter\User\Models\UserPreference;
+use Wpjscc\Api\Models\UserPreference;
 
 /**
  * Preference Maker Trait
