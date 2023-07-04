@@ -42,9 +42,9 @@ class CreateApiController extends BaseScaffoldCommand
      * @var array A mapping of stub to generated file.
      */
     protected $stubs = [
-        'scaffold/controller/config_form.stub'   => 'controllers/{{lower_name}}api/config_form.yaml',
-        'scaffold/controller/config_list.stub'   => 'controllers/{{lower_name}}api/config_list.yaml',
-        'scaffold/controller/controller.stub'    => 'controllers/{{studly_name}}Api.php',
+        'scaffold/controller/config_form.stub'   => 'controllers/{{lower_name}}/config_form.yaml',
+        'scaffold/controller/config_list.stub'   => 'controllers/{{lower_name}}/config_list.yaml',
+        'scaffold/controller/controller.stub'    => 'controllers/{{studly_name}}.php',
     ];
 
     /**
