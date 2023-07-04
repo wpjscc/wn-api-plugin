@@ -73,7 +73,7 @@ class CreateApiController extends BaseScaffoldCommand
     {
         $vars = parent::processVars($vars);
 
-        $vars['controller_url'] = "{$vars['plugin_url']}/{$vars['lower_name']}api";
+        $vars['controller_url'] = "{$vars['plugin_url']}/{$vars['lower_name']}";
         $vars['model_lang_key_short'] = "models.{$vars['lower_model']}";
         $vars['model_lang_key'] = "{$vars['plugin_id']}::lang.{$vars['model_lang_key_short']}";
 
