@@ -5,6 +5,7 @@ use Illuminate\Routing\Controller as ControllerBase;
 use Wpjscc\Api\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Winter\User\Models\User as UserModel;
 
 /**
  * The Backend base controller class, used by Backend controllers.
@@ -22,8 +23,8 @@ class AuthController extends ControllerBase
        
         // ref https://github.com/slimkit/plus/blob/35ace420d15d2b8cf3506dc85e5f1883ac432d16/app/Http/Controllers/Auth/LoginController.php#L76
         $request->validate([
-            'login' => 'required',
-            'password' => 'required',
+            'login' => 'required|between:2,255',
+            'password' => 'required|between:' . UserModel::getMinPasswordLength() . ',255',
         ]);
 
         $request->merge([
