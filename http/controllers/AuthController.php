@@ -19,13 +19,15 @@ class AuthController extends ControllerBase
 
     public function login(Request $request)
     {
-        $request->merge([
-            $this->username() => $request->input('login'),
-        ]);
+       
         // ref https://github.com/slimkit/plus/blob/35ace420d15d2b8cf3506dc85e5f1883ac432d16/app/Http/Controllers/Auth/LoginController.php#L76
         $request->validate([
-            $this->username() => 'required|username',
+            'login' => 'required',
             'password' => 'required',
+        ]);
+
+        $request->merge([
+            $this->username() => $request->input('login'),
         ]);
      
         $user = User::where($this->username(), $request->input('login'))->first();

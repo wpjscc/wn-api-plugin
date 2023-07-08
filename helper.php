@@ -37,7 +37,7 @@ function username(string $login, string $default = 'id'): string
     $map = [
         'email' => filter_var($login, FILTER_VALIDATE_EMAIL),
         'phone' => validateChinaPhoneNumber($login),
-        'name' => validateUsername($login),
+        'username' => validateUsername($login),
     ];
 
     foreach ($map as $field => $value) {
