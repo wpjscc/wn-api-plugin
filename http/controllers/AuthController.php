@@ -22,7 +22,7 @@ class AuthController extends ControllerBase
         $request->merge([
             $this->username() => $request->input('login'),
         ]);
-
+        // ref https://github.com/slimkit/plus/blob/35ace420d15d2b8cf3506dc85e5f1883ac432d16/app/Http/Controllers/Auth/LoginController.php#L76
         $request->validate([
             $this->username() => 'required|username',
             'password' => 'required',
