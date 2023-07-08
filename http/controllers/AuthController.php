@@ -19,13 +19,16 @@ class AuthController extends ControllerBase
 
     public function login(Request $request)
     {
+        $request->merge([
+            $this->username() => $request->input('login'),
+        ]);
 
         $request->validate([
-            'email' => 'required|email',
+            $this->username() => 'required|username',
             'password' => 'required',
         ]);
      
-        $user = User::where('email', $request->email)->first();
+        $user = User::where($this->username(), $request->input('login'))->first();
      
         if (! $user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
@@ -39,6 +42,20 @@ class AuthController extends ControllerBase
             'user' => $user,
         ]);
         
+    }
+
+     /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     *
+     * @author Seven Du <shiweidu@outlook.com>
+     */
+    protected function username(): string
+    {
+        return username(
+            request()->input('login')
+        );
     }
 
     public function user(Request $request)

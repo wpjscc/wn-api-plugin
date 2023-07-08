@@ -8,6 +8,11 @@
             "email": "wpjscc@gmail.com"
         }
     ],
+    "autoload": {
+        "files": [
+            "helper.php"
+        ]
+    },
     "require": {
         "laravel/sanctum": "^3.0"
     },

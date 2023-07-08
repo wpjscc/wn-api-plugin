@@ -144,4 +144,16 @@ class Plugin extends PluginBase
             }
         }
     }
+
+    public function registerValidationRules()
+    {
+        return [
+            'cn_phone' => function ($attribute, $value, $parameters, $validator) {
+                return validateChinaPhoneNumber($value);
+            },
+            'username' => function ($attribute, $value, $parameters, $validator) {
+                return validateUsername($value);
+            },
+        ];
+    }
 }
