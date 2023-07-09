@@ -1285,6 +1285,15 @@ class Form extends WidgetBase
             $data = [];
         }
 
+        foreach ($data as $key => $value) {
+            if (str_contains($key, '[')) {
+                $parts = HtmlHelper::nameToArray($key);
+                $setSey = implode('.', $parts);
+                data_set($data, $setSey, $value);
+                unset($data[$key]);
+            }
+        }
+
         /*
          * Spin over each field and extract the postback value
          */
