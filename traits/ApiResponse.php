@@ -8,7 +8,7 @@ use Wpjscc\Api\Exceptions\BusinessException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-
+use Flash;
 
 trait ApiResponse
 {
@@ -22,6 +22,12 @@ trait ApiResponse
     {
         if ($msg) {
             $codeResponse[1] = $msg;
+        }
+        if (!$codeResponse[1]) {
+            $flashes = Flash::all();
+            if (!empty($flashes)) {
+                $codeResponse[1] = array_values($flashes)[0];
+            }
         }
         return $this->jsonResponse('success',$codeResponse, $data, null);
     }
