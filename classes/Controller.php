@@ -77,6 +77,7 @@ class Controller extends ControllerBase
     protected $action;
 
     protected $pluginCode;
+    protected $options;
 
 
     /**
@@ -133,6 +134,7 @@ class Controller extends ControllerBase
         $this->action = ApiController::$action;
         $this->params = ApiController::$params;
         $this->pluginCode = ApiController::$pluginCode;
+        $this->options = ApiController::$options;
 
         /*
          * Apply $guarded methods to hidden actions
