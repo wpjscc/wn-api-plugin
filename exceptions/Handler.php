@@ -6,6 +6,7 @@ use App;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\QueryException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException as BaseNotFoundHttpException;
 
 
 class Handler
@@ -43,6 +44,10 @@ class Handler
         });
 
         App::error(function(NotFoundHttpException $e){
+            return Handler::renderException($e);
+        });
+
+        App::error(function(BaseNotFoundHttpException $e){
             return Handler::renderException($e);
         });
 
