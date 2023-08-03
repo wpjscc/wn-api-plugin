@@ -440,6 +440,47 @@ class Form extends WidgetBase
          */
         $this->fireSystemEvent('backend.form.refreshFields', [$this->allFields]);
 
+        $eventResults = $this->fireSystemEvent('backend.form.refresh', [$result], false);
+
+        $result = [
+            'form' => [
+                $this->arrayName => $this->getTransformRecord(),
+                '_context' => $this->getContext(),
+                '_session_key' => $this->getSessionKey(),
+                '_relation_field' => post('_relation_field')
+            ],
+            'array_name' => $this->arrayName,
+            // 'fields' => array_map(function ($field){
+            //     return [
+            //         'label' => $field->label,
+            //         'config' => $field->config,
+            //         'context' => $field->context,
+            //         'fieldName' => $field->fieldName,
+            //         'readOnly' => $field->readOnly,
+            //         'required' => $field->required,
+            //         'value' => $field->value,
+            //         'type' => $field->type,
+            //         'options' => $field->options,
+            //         'disabled' => $field->disabled,
+            //         'hidden' => $field->hidden,
+            //         'placeholder' => $field->placeholder,
+            //         'alias' => $field->alias ?? "",
+            //         'config' => $field->config,
+            //     ];
+            // },$this->getFields()),
+        ];
+
+        foreach ($eventResults as $eventResult) {
+            if (!is_array($eventResult)) {
+                continue;
+            }
+
+            $result = $eventResult + $result;
+        }
+
+        return $result;
+
+        
         /*
          * If an array of fields is supplied, update specified fields individually.
          */
