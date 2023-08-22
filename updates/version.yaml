@@ -15,3 +15,6 @@
 1.0.6:
     - 'Created table wpjscc_api_tests'
     - builder_table_create_wpjscc_api_tests.php
+1.0.7:
+    - 'Create Services Table'
+    - v1.0.7/create_services_table.php
