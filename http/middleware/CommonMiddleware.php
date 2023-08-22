@@ -1,6 +1,7 @@
 <?php namespace Wpjscc\Api\Http\Middleware;
 
 use Wpjscc\Api\Classes\ApiController;
+use Wpjscc\Api\Services\UserToService;
 use Auth;
 
 class CommonMiddleware
@@ -15,6 +16,7 @@ class CommonMiddleware
         }
         if ($user = $request->user()) {
             Auth::setUser($user);
+            UserToService::userToService($user);
         }
 
         return $next($request);
