@@ -51,6 +51,8 @@ class Plugin extends PluginBase
         if (!$this->app->runningInBackend()) {
             Handler::register();
             Sanctum::ignoreMigrations();
+            Sanctum::usePersonalAccessTokenModel(\Wpjscc\Api\Models\PersonalAccessToken::class);
+
             // laravel Sanctum
             $this->app['Illuminate\Contracts\Http\Kernel']->prependMiddlewareToGroup('api', \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class);
             // 公共中间件
