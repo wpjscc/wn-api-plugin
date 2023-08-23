@@ -12,11 +12,7 @@ use Winter\Storm\Support\Traits\Emitter;
 
 trait EventEmitter
 {
-    use Emitter {
-        Emitter::bindEvent as on;
-        Emitter::bindEventOnce as once;
-    }
-
+    use Emitter;
 
     /**
      * Fires a combination of local and global events. The first segment is removed
@@ -38,7 +34,7 @@ trait EventEmitter
      * @param boolean $halt Halt after first non-null result
      * @return mixed
      */
-    public function emit($event, $params = [], $halt = true)
+    public function fire($event, $params = [], $halt = true)
     {
         $result = [];
 
