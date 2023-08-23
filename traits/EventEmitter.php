@@ -21,7 +21,7 @@ trait EventEmitter
      *
      * For example:
      *
-     *     $this->fireSystemEvent('list.myEvent', ['my value']);
+     *     $this->fire('list.myEvent', ['my value']);
      *
      * Is equivalent to:
      *
