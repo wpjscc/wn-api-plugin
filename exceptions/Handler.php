@@ -61,7 +61,7 @@ class Handler
         
         return response()->json([
             'status' => 'fail',
-            'code' => $e->getCode(),
+            'code' => $e->getCode()?:1,
             'msg' => config('app.debug') ? sprintf(
                 '"%s" on line %s of %s',
                 $e->getMessage(),
