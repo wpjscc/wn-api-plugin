@@ -493,7 +493,7 @@ class Controller extends ControllerBase
                 if (!empty($flashs)) {
                     $msg = array_values($flashs)[0];
                 }
-
+                unset($responseContents['X_WINTER_FLASH_MESSAGES']);
                 return $this->success($responseContents, $msg);
 
             }
